@@ -3,6 +3,7 @@ package com.sample.musicplayerui.util
 import androidx.compose.foundation.Text
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.BottomAppBar
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
@@ -23,13 +24,13 @@ fun BottomBar(bottomBarLabels: List<Any>): Pair<@Composable () -> Unit, Int> {
     val onSelect: (Int) -> Unit = { tab -> setSelectedTabIndex(tab) }
 
     val tabs: @Composable () -> Unit = {
-        Row(Modifier.fillMaxWidth(), Arrangement.Start) {
+        BottomAppBar(Modifier.fillMaxWidth(), MaterialTheme.colors.surface ) {
             bottomBarLabels.mapIndexed { index, _ ->
                 val selectedAccentColor: Color =
                     if (index == selectedTabIndex) Color.Red else MaterialTheme.colors.primary
                 Box(
                     Modifier
-                        .clickable(onClick = { onSelect(index) })
+                        .clickable(onClick = { onSelect(index) }, indication = null)
                         .weight(1f)
                         .padding(10.dp),
                     Alignment.Center
