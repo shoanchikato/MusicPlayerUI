@@ -24,7 +24,7 @@ fun BottomBar(bottomBarLabels: List<Any>): Pair<@Composable () -> Unit, Int> {
     val onSelect: (Int) -> Unit = { tab -> setSelectedTabIndex(tab) }
 
     val tabs: @Composable () -> Unit = {
-        BottomAppBar(Modifier.fillMaxWidth(), MaterialTheme.colors.surface ) {
+        BottomAppBar(Modifier.fillMaxWidth(), MaterialTheme.colors.background ) {
             bottomBarLabels.mapIndexed { index, _ ->
                 val selectedAccentColor: Color =
                     if (index == selectedTabIndex) Color.Red else MaterialTheme.colors.primary
