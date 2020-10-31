@@ -17,7 +17,7 @@ import androidx.ui.tooling.preview.Preview
 import com.sample.musicplayerui.ui.MusicPlayerUITheme
 
 @Composable
-fun BottomBar(bottomBarLabels: List<Any>): Pair<@Composable () -> Unit, Int> {
+fun CustomBottomBar(bottomBarLabels: List<Any>): Pair<@Composable () -> Unit, Int> {
     // ISSUE: hardcoded bottom = 40.dp padding on all views/containers
     // so that bottomBar doesn't cover other views
     val (selectedTabIndex, setSelectedTabIndex) = remember { mutableStateOf(0) }
@@ -47,7 +47,7 @@ fun BottomBar(bottomBarLabels: List<Any>): Pair<@Composable () -> Unit, Int> {
 @Preview(showBackground = true)
 @Composable
 fun BottomBarPreview() {
-    val (tabs, _) = BottomBar(listOf("Songs", "Albums", "Artists", "Playlists"))
+    val (tabs, _) = CustomBottomBar(listOf("Songs", "Albums", "Artists", "Playlists"))
     MusicPlayerUITheme {
         Scaffold(
             bottomBar = tabs,

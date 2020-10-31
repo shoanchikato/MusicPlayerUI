@@ -7,12 +7,12 @@ import com.sample.musicplayerui.screens.Albums
 import com.sample.musicplayerui.screens.Artists
 import com.sample.musicplayerui.screens.Playlists
 import com.sample.musicplayerui.screens.Songs
-import com.sample.musicplayerui.util.BottomBar
+import com.sample.musicplayerui.util.CustomBottomBar
 
 @Composable
 fun MusicPlayerUI() {
     val bottomBarLabels = listOf("Songs", "Albums", "Artists", "Playlists")
-    val (tabs, selectedTabIndex) = BottomBar(bottomBarLabels)
+    val (tabs, selectedTabIndex) = CustomBottomBar(bottomBarLabels)
 
     Scaffold(
         bottomBar = tabs
