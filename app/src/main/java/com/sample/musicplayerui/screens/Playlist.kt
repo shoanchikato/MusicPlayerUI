@@ -16,6 +16,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.ui.tooling.preview.Preview
 import com.sample.musicplayerui.ui.MusicPlayerUITheme
+import com.sample.musicplayerui.util.StatefulFavoriteIcon
 
 @Composable
 fun Playlists() {
@@ -51,7 +52,7 @@ fun PlaylistRow(index: Int, itemsSize: Int) {
                 Text("26 songs", fontSize = 14.sp)
             }
         }
-        Text("heart emoji")
+        StatefulFavoriteIcon()
     }
     if (index == itemsSize) Divider()
 }
