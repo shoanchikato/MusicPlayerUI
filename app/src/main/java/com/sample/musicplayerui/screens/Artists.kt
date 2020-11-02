@@ -10,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.drawWithCache
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.VerticalGradient
 import androidx.compose.ui.text.font.FontWeight
@@ -38,11 +39,7 @@ fun ArtistRow(itemIndex: Int, items: List<Int>) {
     ) else listOf(((itemIndex * 2) + 1))
     val fillRatio = if (isEven) 1f else .5f
     val horizontalAlignment = if (isEven) Alignment.CenterHorizontally else Alignment.Start
-    val gradient = VerticalGradient(
-        listOf(Color.Transparent, MaterialTheme.colors.primary),
-        startY = 0.1f,
-        endY = 350.0f
-    )
+    val colors = listOf(Color.Transparent, MaterialTheme.colors.primary)
 
     Row {
         displayItems.map { item ->
@@ -53,7 +50,7 @@ fun ArtistRow(itemIndex: Int, items: List<Int>) {
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     Box(
                         Modifier.padding(horizontal = 16.dp).fillMaxSize(fillRatio).aspectRatio(1f)
-                            .clip(CircleShape).background(gradient), Alignment.Center
+                            .clip(CircleShape).verticalGradientBackground(colors), Alignment.Center
                     ) {
                         Text("$item", fontSize = 96.sp, fontWeight = FontWeight.Bold)
                     }
@@ -62,6 +59,20 @@ fun ArtistRow(itemIndex: Int, items: List<Int>) {
                 }
             }
         }
+    }
+}
+
+fun Modifier.verticalGradientBackground(
+        colors: List<Color>
+) = drawWithCache {
+    // Use drawWithCache modifier to create and cache the gradient once size is known or changes.
+    val gradient = VerticalGradient(
+            startY = 0.0f,
+            endY = size.height,
+            colors = colors
+    )
+    onDraw {
+        drawRect(brush = gradient)
     }
 }
 
