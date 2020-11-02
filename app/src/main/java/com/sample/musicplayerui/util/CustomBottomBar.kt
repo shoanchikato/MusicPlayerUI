@@ -46,8 +46,9 @@ fun CustomBottomBar(bottomBarLabels: List<Any>): Pair<@Composable () -> Unit, In
 
 @Preview(showBackground = true)
 @Composable
-fun BottomBarPreview() {
-    val (tabs, _) = CustomBottomBar(listOf("Songs", "Albums", "Artists", "Playlists"))
+fun CustomBottomBarPreview() {
+    val bottomBarLabels = listOf("Songs", "Albums", "Artists", "Playlists")
+    val (tabs, _) = CustomBottomBar(bottomBarLabels)
     MusicPlayerUITheme {
         Scaffold(
             bottomBar = tabs,

@@ -25,8 +25,16 @@ class MainActivity : AppCompatActivity() {
 
 @Preview(showBackground = true)
 @Composable
-fun DefaultPreview() {
+fun LightThemePreview() {
     MusicPlayerUITheme {
+        MusicPlayerUI()
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun DarkThemePreview() {
+    MusicPlayerUITheme(darkTheme = true) {
         MusicPlayerUI()
     }
 }

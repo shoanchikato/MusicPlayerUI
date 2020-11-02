@@ -1,28 +1,32 @@
 package com.sample.musicplayerui
 
-import androidx.compose.foundation.Text
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.sample.musicplayerui.screens.Albums
 import com.sample.musicplayerui.screens.Artists
 import com.sample.musicplayerui.screens.Playlists
 import com.sample.musicplayerui.screens.Songs
+import com.sample.musicplayerui.util.BottomBar
 import com.sample.musicplayerui.util.CustomBottomBar
+import com.sample.musicplayerui.util.Screen
 
 @Composable
 fun MusicPlayerUI() {
-    val bottomBarLabels = listOf("Songs", "Albums", "Artists", "Playlists")
-    val (tabs, selectedTabIndex) = CustomBottomBar(bottomBarLabels)
+    val navController = rememberNavController()
 
     Scaffold(
-        bottomBar = tabs
+            bottomBar = {
+                BottomBar(navController)
+            }
     ) {
-        when (selectedTabIndex) {
-            0 -> Songs()
-            1 -> Albums()
-            2 -> Artists()
-            3 -> Playlists()
-            else -> Text("Welcome")
+        NavHost(navController, startDestination = Screen.Songs.route) {
+            composable(Screen.Songs.route) { Songs() }
+            composable(Screen.Albums.route) { Albums() }
+            composable(Screen.Artists.route) { Artists() }
+            composable(Screen.Playlists.route) { Playlists() }
         }
     }
 }

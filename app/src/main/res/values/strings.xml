@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">MusicPlayerUI</string>
+    <string name="route_songs">Songs</string>
+    <string name="route_artists">Artists</string>
+    <string name="route_albums">Albums</string>
+    <string name="route_playlists">Playlists</string>
 </resources>

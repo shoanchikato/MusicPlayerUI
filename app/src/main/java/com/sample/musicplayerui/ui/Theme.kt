@@ -10,13 +10,18 @@ import androidx.compose.ui.graphics.Color
 private val DarkColorPalette = darkColors(
         primary = white,
         primaryVariant = darkGrey,
-        secondary = bgGrey
+        secondary = bgGrey,
+        background = Color.Black,
+        surface = bgGrey,
+
 )
 
 private val LightColorPalette = lightColors(
         primary = black,
         primaryVariant = grey,
-        secondary = bgGrey
+        secondary = bgGrey,
+        background = white,
+        surface = darkGrey,
 
         /* Other default colors to override
     background = Color.White,
@@ -29,7 +34,7 @@ private val LightColorPalette = lightColors(
 )
 
 @Composable
-fun MusicPlayerUITheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable() () -> Unit) {
+fun MusicPlayerUITheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
     val colors = if (darkTheme) {
         DarkColorPalette
     } else {
