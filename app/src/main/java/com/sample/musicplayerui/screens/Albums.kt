@@ -18,7 +18,7 @@ import com.sample.musicplayerui.ui.MusicPlayerUITheme
 
 @Composable
 fun Albums() {
-    Column(Modifier.padding(start = 16.dp, end = 16.dp, bottom = 56.dp)) {
+    Column(Modifier.padding(start = 16.dp, end = 16.dp)) {
         Text("Albums", fontSize = 40.sp, fontWeight = FontWeight.Bold)
         Spacer(Modifier.height(8.dp))
         LazyColumnForIndexed(items = IntArray(21).toList().chunked(2)) { index, items ->

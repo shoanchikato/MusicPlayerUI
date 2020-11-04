@@ -21,7 +21,7 @@ import com.sample.musicplayerui.util.StatefulFavoriteIcon
 @Composable
 fun Playlists() {
     val items = IntArray(5).toList()
-    Column(Modifier.padding(start = 16.dp, end = 16.dp, bottom = 56.dp)) {
+    Column(Modifier.padding(start = 16.dp, end = 16.dp)) {
         Text("Playlist", fontSize = 40.sp, fontWeight = FontWeight.Bold)
         Spacer(Modifier.height(8.dp))
         LazyColumnForIndexed(items = items) { index, _ ->

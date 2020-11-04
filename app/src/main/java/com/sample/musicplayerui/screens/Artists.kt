@@ -1,7 +1,6 @@
 package com.sample.musicplayerui.screens
 
 import androidx.compose.foundation.Text
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumnForIndexed
 import androidx.compose.foundation.shape.CircleShape
@@ -21,7 +20,7 @@ import com.sample.musicplayerui.ui.MusicPlayerUITheme
 
 @Composable
 fun Artists() {
-    Column(Modifier.padding(start = 16.dp, end = 16.dp, bottom = 56.dp)) {
+    Column(Modifier.padding(start = 16.dp, end = 16.dp)) {
         Text("Artists", fontSize = 40.sp, fontWeight = FontWeight.Bold)
         Spacer(Modifier.height(8.dp))
         LazyColumnForIndexed(items = IntArray(21).toList().chunked(2)) { index, items ->

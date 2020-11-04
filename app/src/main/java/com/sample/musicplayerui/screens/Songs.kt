@@ -22,7 +22,7 @@ import com.sample.musicplayerui.util.StatefulFavoriteIcon
 fun Songs() {
     val items = IntArray(20).toList()
 
-    Column(Modifier.padding(start = 16.dp, end = 16.dp, bottom = 56.dp)) {
+    Column(Modifier.padding(start = 16.dp, end = 16.dp)) {
         Text("Songs", fontSize = 40.sp, fontWeight = FontWeight.Bold)
         Spacer(Modifier.height(8.dp))
         LazyColumnForIndexed(items = items) { index, _ ->
